@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas滑动拼图</title>
+        <script src="./assets/js/index.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="assets/styles/index.css">
+        <style>
+            #reset {
+                display: block;
+                margin: 0 auto;
+                padding: 8px 30px;
+                border: none;
+                background: #0099ff;
+                color: #fff;
+                font-size: 15px;
+                border-radius: 3px;
+                outline: none;
+                cursor: pointer;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="slide-container"></div>
+		<button id="reset">重置</button>
+		
+		<script type="text/javascript">
+			window.onload = () => {
+				const slide1 = new SlidePuzzle({
+					id: '#slide-container',
+					width: 300,
+					height: 190,
+					imgs: [
+						'./assets/images/img1.jpg',
+						'./assets/images/img2.jpg',
+						'./assets/images/img3.jpg',
+                        './assets/images/img4.jpg',
+                        './assets/images/img5.jpg',
+						'./assets/images/img6.jpg',
+						'./assets/images/img7.jpg',
+                        './assets/images/img8.jpg',
+                        './assets/images/img9.jpg'
+					]
+				});
+				
+				
+				//事件监听
+				slide1.listen(data => {
+					console.log(data);
+				})
+
+                //重置
+				document.querySelector('#reset').addEventListener('click', () => {
+					slide1.reset();
+				})
+			}
+		</script>
+	</body>
+</html>
